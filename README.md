@@ -38,8 +38,9 @@ But beware! Falling off the map or touching an enemy sends you to the game-over 
 3. Press **Play ▶** to start the game  
 
 Controls:
-- **Arrow Keys / WASD** → Move & Jump  
-- **ESC** → Pause / Open Menu  
+- **Arrow Keys Left/Right or A/D** → Move left/right
+- **Space Key** → Jump  
+  
 
 ---
 
