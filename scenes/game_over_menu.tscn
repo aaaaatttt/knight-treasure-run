@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dscaxufgmpx46"]
+
+[ext_resource type="Texture2D" uid="uid://cvrhqdrrrs22o" path="res://assets/sprites/background.png" id="1_6ebp1"]
+[ext_resource type="Script" uid="uid://6hsji4ow4pxe" path="res://scripts/game_over_menu.gd" id="1_cwb3k"]
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_cwb3k")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 648.0
+texture = ExtResource("1_6ebp1")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 424.0
+offset_top = 116.0
+offset_right = 749.0
+offset_bottom = 199.0
+theme_override_font_sizes/font_size = 60
+text = "Game Over"
+
+[node name="RetryButton" type="Button" parent="."]
+offset_left = 527.0
+offset_top = 267.0
+offset_right = 638.0
+offset_bottom = 330.0
+theme_override_font_sizes/font_size = 50
+text = "Retry"
+
+[node name="MenuButton" type="Button" parent="."]
+offset_left = 526.0
+offset_top = 406.0
+offset_right = 666.0
+offset_bottom = 483.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[connection signal="pressed" from="RetryButton" to="." method="on_retry_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="on_menu_pressed"]

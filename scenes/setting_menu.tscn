@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://16tnegdcwc5w"]
+
+[ext_resource type="Texture2D" uid="uid://cvrhqdrrrs22o" path="res://assets/sprites/background.png" id="1_ogw40"]
+[ext_resource type="Script" uid="uid://bdcqf2o5tvsvp" path="res://scripts/setting_menu.gd" id="1_pgfik"]
+[ext_resource type="PackedScene" uid="uid://cuj7oyu7gyue6" path="res://scenes/music.tscn" id="2_vproo"]
+
+[node name="SettingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_pgfik")
+
+[node name="Music" parent="." instance=ExtResource("2_vproo")]
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 651.0
+texture = ExtResource("1_ogw40")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 383.0
+offset_right = 811.0
+offset_bottom = 651.0
+alignment = 1
+
+[node name="Settings" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Settings"
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Music:"
+
+[node name="MusicToggle" type="CheckButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Volume" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Volume:"
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/MusicToggle" to="." method="_on_music_toggle_toggled"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
